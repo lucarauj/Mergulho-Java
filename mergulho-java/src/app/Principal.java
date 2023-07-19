@@ -1,9 +1,6 @@
 package app;
 
-import modelo.Conta;
-import modelo.ContaEspecial;
-import modelo.ContaInvestimento;
-import modelo.Pessoa;
+import modelo.*;
 
 public class Principal {
     public static void main(String[] args) {
@@ -41,5 +38,10 @@ public class Principal {
 
         System.out.println("Titular: " + contaEspecial.getTitular().getNome());
         System.out.println("Saldo: " + contaEspecial.getSaldo());
+
+        CaixaEletronico ce = new CaixaEletronico();
+        ce.imprimirSaldo(minhaConta);
+        ce.imprimirSaldo(contaEspecial);
+        ce.imprimirSaldo(contaInvestimento);
     }
 }
