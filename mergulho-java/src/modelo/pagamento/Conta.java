@@ -1,5 +1,7 @@
 package modelo.pagamento;
 
+import modelo.excecao.SaldoInsuficienteException;
+
 import java.util.Objects;
 
 public abstract class Conta {
@@ -47,7 +49,7 @@ public abstract class Conta {
             throw new IllegalArgumentException("Valor deve ser maior que zero");
         }
         if (valor > getSaldoDisponivel()) {
-            throw new IllegalStateException("Saldo insulficiente");
+            throw new SaldoInsuficienteException("Saldo insulficiente");
         }
         saldo -= valor;
     }
