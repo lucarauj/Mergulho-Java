@@ -1,6 +1,7 @@
 package app;
 
-import modelo.*;
+import modelo.atm.CaixaEletronico;
+import modelo.pagamento.*;
 
 public class Principal {
     public static void main(String[] args) {
@@ -27,10 +28,10 @@ public class Principal {
         contaEspecial.sacar(15_500);
 
         System.out.println("Titular: " + contaInvestimento.getTitular().getNome());
-        System.out.println("Saldo: " + contaInvestimento.getSaldo());
+        System.out.println("Saldo: " + contaInvestimento.getSaldo() + "\n");
 
         System.out.println("Titular: " + contaEspecial.getTitular().getNome());
-        System.out.println("Saldo: " + contaEspecial.getSaldo());
+        System.out.println("Saldo: " + contaEspecial.getSaldo() + "\n");
 
         CaixaEletronico ce = new CaixaEletronico();
         ce.imprimirSaldo(contaEspecial);
@@ -40,9 +41,28 @@ public class Principal {
         contaInvestimento.debitarTarifaMensal();
 
         System.out.println("Titular: " + contaInvestimento.getTitular().getNome());
-        System.out.println("Saldo: " + contaInvestimento.getSaldo());
+        System.out.println("Saldo: " + contaInvestimento.getSaldo() + "\n");
 
         System.out.println("Titular: " + contaEspecial.getTitular().getNome());
-        System.out.println("Saldo: " + contaEspecial.getSaldo());
+        System.out.println("Saldo: " + contaEspecial.getSaldo() + "\n");
+
+        Boleto boleto = new Boleto(200, titular1);
+        ce.pagar(boleto, contaInvestimento);
+
+        System.out.println("Titular: " + contaInvestimento.getTitular().getNome());
+        System.out.println("Saldo: " + contaInvestimento.getSaldo() + "\n");
+
+        ce.pagar(new Holerite(titular1, 15, 160), contaInvestimento);
+
+        System.out.println("Titular: " + contaInvestimento.getTitular().getNome());
+        System.out.println("Saldo: " + contaInvestimento.getSaldo() + "\n");
+
+        ce.estornarPagamento(boleto, contaInvestimento);
+
+        System.out.println("Titular: " + contaInvestimento.getTitular().getNome());
+        System.out.println("Saldo: " + contaInvestimento.getSaldo() + "\n");
+
+        boleto.imprimirRecibo();
+
     }
 }

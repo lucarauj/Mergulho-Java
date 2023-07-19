@@ -1,4 +1,4 @@
-package modelo;
+package modelo.pagamento;
 
 public class Pessoa {
 
