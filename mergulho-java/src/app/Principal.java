@@ -17,10 +17,6 @@ public class Principal {
         titular3.setNome("Jeremias Albert");
         titular3.setDocumento("24632786510");
 
-        Conta minhaConta = new Conta(titular1, 123, 987);
-        minhaConta.depositar (30_000);
-        minhaConta.sacar(1_000);
-
         ContaInvestimento contaInvestimento = new ContaInvestimento(titular2, 222, 3336);
         contaInvestimento.depositar (15_000);
         contaInvestimento.sacar(1000);
@@ -30,9 +26,6 @@ public class Principal {
         contaEspecial.depositar (15_000);
         contaEspecial.sacar(15_500);
 
-        System.out.println("Titular: " + minhaConta.getTitular().getNome());
-        System.out.println("Saldo: " + minhaConta.getSaldo());
-
         System.out.println("Titular: " + contaInvestimento.getTitular().getNome());
         System.out.println("Saldo: " + contaInvestimento.getSaldo());
 
@@ -40,8 +33,16 @@ public class Principal {
         System.out.println("Saldo: " + contaEspecial.getSaldo());
 
         CaixaEletronico ce = new CaixaEletronico();
-        ce.imprimirSaldo(minhaConta);
         ce.imprimirSaldo(contaEspecial);
         ce.imprimirSaldo(contaInvestimento);
+
+        contaEspecial.debitarTarifaMensal();
+        contaInvestimento.debitarTarifaMensal();
+
+        System.out.println("Titular: " + contaInvestimento.getTitular().getNome());
+        System.out.println("Saldo: " + contaInvestimento.getSaldo());
+
+        System.out.println("Titular: " + contaEspecial.getTitular().getNome());
+        System.out.println("Saldo: " + contaEspecial.getSaldo());
     }
 }

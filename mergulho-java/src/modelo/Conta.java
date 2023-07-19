@@ -2,7 +2,7 @@ package modelo;
 
 import java.util.Objects;
 
-public class Conta {
+public abstract class Conta {
 
     private Pessoa titular;
     private int agencia;
@@ -59,4 +59,6 @@ public class Conta {
     public double getSaldoDisponivel() {
         return getSaldo();
     }
+
+    public abstract void debitarTarifaMensal();
 }
