@@ -1,6 +1,8 @@
 package app;
 
 import modelo.Conta;
+import modelo.ContaEspecial;
+import modelo.ContaInvestimento;
 import modelo.Pessoa;
 
 public class Principal {
@@ -14,19 +16,30 @@ public class Principal {
         titular2.setNome("Maria Roberta");
         titular2.setDocumento("03432655510");
 
-        Conta minhaConta = new Conta(titular1, 123, 987);
+        Pessoa titular3 = new Pessoa();
+        titular3.setNome("Jeremias Albert");
+        titular3.setDocumento("24632786510");
 
-        minhaConta.depositar (15_000);
+        Conta minhaConta = new Conta(titular1, 123, 987);
+        minhaConta.depositar (30_000);
         minhaConta.sacar(1_000);
 
-        Conta suaConta = new Conta(titular2, 222, 333);
+        ContaInvestimento contaInvestimento = new ContaInvestimento(titular2, 222, 3336);
+        contaInvestimento.depositar (15_000);
+        contaInvestimento.sacar(1000);
+        contaInvestimento.creditarRendimentos(0.8);
 
-        suaConta.depositar (30_000);
+        ContaEspecial contaEspecial = new ContaEspecial(titular3, 026, 2264, 1_000);
+        contaEspecial.depositar (15_000);
+        contaEspecial.sacar(15_500);
 
         System.out.println("Titular: " + minhaConta.getTitular().getNome());
         System.out.println("Saldo: " + minhaConta.getSaldo());
 
-        System.out.println("Titular: " + suaConta.getTitular().getNome());
-        System.out.println("Saldo: " + suaConta.getSaldo());
+        System.out.println("Titular: " + contaInvestimento.getTitular().getNome());
+        System.out.println("Saldo: " + contaInvestimento.getSaldo());
+
+        System.out.println("Titular: " + contaEspecial.getTitular().getNome());
+        System.out.println("Saldo: " + contaEspecial.getSaldo());
     }
 }
