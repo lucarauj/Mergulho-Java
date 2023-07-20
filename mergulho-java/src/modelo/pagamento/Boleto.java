@@ -1,18 +1,20 @@
 package modelo.pagamento;
 
+import java.math.BigDecimal;
+
 public class Boleto implements DocumentoPagavel, DocumentoEstornavel {
 
     private Pessoa beneficiario;
-    private double valor;
+    private BigDecimal valor;
     private boolean estaPago;
 
-    public Boleto(double valor, Pessoa beneficiario) {
+    public Boleto(BigDecimal valor, Pessoa beneficiario) {
         this.beneficiario = beneficiario;
         this.valor = valor;
     }
 
     @Override
-    public double getValorTotal() {
+    public BigDecimal getValorTotal() {
         return this.valor;
     }
 

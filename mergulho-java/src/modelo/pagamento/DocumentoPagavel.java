@@ -1,8 +1,10 @@
 package modelo.pagamento;
 
+import java.math.BigDecimal;
+
 public interface DocumentoPagavel {
 
-    double getValorTotal();
+    BigDecimal getValorTotal();
     boolean estaPago();
     void quitarPagamento();
 

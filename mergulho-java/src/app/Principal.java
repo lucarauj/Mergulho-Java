@@ -4,12 +4,17 @@ import modelo.atm.CaixaEletronico;
 import modelo.excecao.SaldoInsuficienteException;
 import modelo.pagamento.*;
 
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
 public class Principal {
     public static void main(String[] args) {
 
         Pessoa titular1 = new Pessoa();
         titular1.setNome("João da Silva");
         titular1.setDocumento("11133355566");
+        titular1.setRendimentoAnual(new BigDecimal("15000"));
+        titular1.setDataUltimaAtualizacao(LocalDateTime.parse("2023-06-10T13:20:00"));
 
         Pessoa titular2 = new Pessoa();
         titular2.setNome("Maria Roberta");
@@ -21,13 +26,13 @@ public class Principal {
 
         try{
             ContaInvestimento contaInvestimento = new ContaInvestimento(titular2, 222, 3336);
-            contaInvestimento.depositar (15_000);
-            contaInvestimento.sacar(1000);
-            contaInvestimento.creditarRendimentos(0.8);
+            contaInvestimento.depositar (new BigDecimal("15000"));
+            contaInvestimento.sacar(new BigDecimal("1000"));
+            contaInvestimento.creditarRendimentos(new BigDecimal("0.8"));
 
-            ContaEspecial contaEspecial = new ContaEspecial(titular3, 026, 2264, 1_000);
-            contaEspecial.depositar (15_000);
-            contaEspecial.sacar(15_500);
+            ContaEspecial contaEspecial = new ContaEspecial(titular3, 026, 2264, new BigDecimal("1000"));
+            contaEspecial.depositar (new BigDecimal("15000"));
+            contaEspecial.sacar(new BigDecimal("15500"));
 
             System.out.println("Titular: " + contaInvestimento.getTitular().getNome());
             System.out.println("Saldo: " + contaInvestimento.getSaldo() + "\n");
@@ -48,13 +53,13 @@ public class Principal {
             System.out.println("Titular: " + contaEspecial.getTitular().getNome());
             System.out.println("Saldo: " + contaEspecial.getSaldo() + "\n");
 
-            Boleto boleto = new Boleto(200, titular1);
+            Boleto boleto = new Boleto(new BigDecimal("200"), titular1);
             ce.pagar(boleto, contaInvestimento);
 
             System.out.println("Titular: " + contaInvestimento.getTitular().getNome());
             System.out.println("Saldo: " + contaInvestimento.getSaldo() + "\n");
 
-            ce.pagar(new Holerite(titular1, 150, 160), contaInvestimento);
+            ce.pagar(new Holerite(titular1, new BigDecimal("150"), 160), contaInvestimento);
 
             System.out.println("Titular: " + contaInvestimento.getTitular().getNome());
             System.out.println("Saldo: " + contaInvestimento.getSaldo() + "\n");
