@@ -2,6 +2,7 @@ package modelo.pagamento;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Objects;
 
 public class Pessoa {
 
@@ -10,6 +11,13 @@ public class Pessoa {
     private BigDecimal rendimentoAnual;
     private TipoPessoa tipoPessoa = TipoPessoa.PF;
     private LocalDateTime dataUltimaAtualizacao = LocalDateTime.now();
+
+    public Pessoa() {}
+
+    public Pessoa(String nome, String documento) {
+        this.nome = nome;
+        this.documento = documento;
+    }
 
     public String getNome() {
         return nome;
@@ -33,6 +41,24 @@ public class Pessoa {
 
     public void setRendimentoAnual(BigDecimal rendimentoAnual) {
         this.rendimentoAnual = rendimentoAnual;
+    }
+
+    @Override
+    public String toString() {
+        return "Nome: " + this.nome + " - Documento: " + this.documento;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Pessoa pessoa = (Pessoa) obj;
+        return documento.equals(pessoa.documento);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(documento);
     }
 
     public TipoPessoa getTipoPessoa() {
