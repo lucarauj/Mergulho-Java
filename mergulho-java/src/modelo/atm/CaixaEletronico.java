@@ -1,6 +1,6 @@
 package modelo.atm;
 
-import modelo.pagamento.Conta;
+import modelo.Conta;
 import modelo.pagamento.DocumentoEstornavel;
 import modelo.pagamento.DocumentoPagavel;
 

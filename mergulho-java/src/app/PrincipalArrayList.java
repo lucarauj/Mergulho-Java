@@ -1,6 +1,6 @@
 package app;
 
-import modelo.pagamento.Pessoa;
+import modelo.Pessoa;
 
 import java.util.ArrayList;
 import java.util.List;

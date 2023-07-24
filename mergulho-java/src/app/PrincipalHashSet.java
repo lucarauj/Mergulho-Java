@@ -1,6 +1,6 @@
 package app;
 
-import modelo.pagamento.Pessoa;
+import modelo.Pessoa;
 
 import java.util.HashSet;
 import java.util.Set;

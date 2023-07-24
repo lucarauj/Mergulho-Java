@@ -1,4 +1,4 @@
-package modelo.pagamento;
+package modelo;
 
 public enum TipoPessoa {
 

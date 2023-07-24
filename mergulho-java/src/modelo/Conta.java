@@ -1,4 +1,4 @@
-package modelo.pagamento;
+package modelo;
 
 import modelo.excecao.SaldoInsuficienteException;
 

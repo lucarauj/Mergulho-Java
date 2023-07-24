@@ -1,5 +1,7 @@
 package modelo.pagamento;
 
+import modelo.Pessoa;
+
 import java.math.BigDecimal;
 
 public class Boleto implements DocumentoPagavel, DocumentoEstornavel {

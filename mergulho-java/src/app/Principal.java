@@ -1,5 +1,8 @@
 package app;
 
+import modelo.ContaEspecial;
+import modelo.ContaInvestimento;
+import modelo.Pessoa;
 import modelo.atm.CaixaEletronico;
 import modelo.excecao.SaldoInsuficienteException;
 import modelo.pagamento.*;
