@@ -30,6 +30,14 @@
 - Gerenciamento de dependências: Maven
 - Linguagem: Java
 - Dependências: Spring Web / Spring Data JPA / H2 Database / Spring Boot DevTools
+- Anotações: GetMapping / RequestMapping / RestController / PostMapping / RequestBody / Id / GeneratedValue / Autowired / Entity / Service / ResponseStatus / PathVariable / PutMapping
+
+<br> 
+
+## Implementações feitas por mim 
+
+- Configuração do rastreamento nas mensagens de erro, ocultando o "trace" 
+- Na estruturação do projeto em pacotes (Model - Controller - Repository), inclui o pacote "Service", responsável pelas requisições com o banco de dados, retirando da "Controller" essa responsabilidade. 
 
 <br>
 
