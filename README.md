@@ -1,3 +1,5 @@
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/lucarauj/Mergulho-Java/blob/main/LICENSE)
+
 # Mergulho Java
 
 <br>
